@@ -34,6 +34,10 @@ def get_clean_map(user_map, saml_data):
                 final_map[usr_k] = saml_data[usr_v['key']][usr_v['index']]
             else:
                 final_map[usr_k] = saml_data[usr_v['key']]
+
+            if usr_v.get('lower'):
+                final_map[usr_k] = final_map[usr_k].lower()
+
         else:
             final_map[usr_k] = saml_data[ user_map[usr_k] ]
 
